@@ -1,4 +1,4 @@
-**Hello GitPitch**
+**Hello @color[red](GitPitch)**
 
 ---
 
