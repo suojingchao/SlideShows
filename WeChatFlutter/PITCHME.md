@@ -1,6 +1,6 @@
 ---
 
-# We Chat @color[84CDF4](Flu)@color[6DB8F2](tt)@color[2F5993](er)
+# We Chat @color[#84CDF4](Flu)@color[#6DB8F2](tt)@color[#2F5993](er)
 - Widget
 - About Dart
 
@@ -83,7 +83,7 @@ class SampleApp extends StatelessWidget {
 ---
 
 ## How Widgets Work
-A widget is an immutable @color[6DB8F2](description) of part of a UI. Widgets can be inflated into @color[6DB8F2](elements), which manage the underlying @color[6DB8F2](render tree)
+A widget is an immutable @color[#6DB8F2](description) of part of a UI. Widgets can be inflated into @color[#6DB8F2](elements), which manage the underlying @color[#6DB8F2](render tree)
 
 +++
 
@@ -132,7 +132,7 @@ One Event-Loop,  Two Queues
 
 ---
 
-## What's @color[6DB8F2](Isolate)?
+## What's @color[#6DB8F2](Isolate)?
 Isolate Thread Process
 ![Isolate memory]()
 
