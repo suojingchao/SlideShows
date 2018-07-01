@@ -1,21 +1,21 @@
 ---
-@size[26em](Something @color[blue](Flutter))
-@size[20em](Widget)
-@size[20em](About Dart)
+
+## Something @color[blue](Flutter)
+- Widget
+- About Dart
 
 ---
-@size[26em](Everything's a Widget)
-与分离View，View Controlers，Layout和其他属性的其他UI框架不同，Flutter具有一致的统一对象模型：Widget
+#### Everything's a Widget
 @ul
 - StatefulWidget
 - StatelessWidget
 @ulend
 +++
-![Stateful and Stateless]()
+![Stateful and Stateless](assets/chatflutter/img/stateful_stateless.png)
 +++
-![Widget catalog]()
+![Widget catalog](assets/chatflutter/img/catalog.png)
 ---
-@size[26em](Usage of StatefulWidget)
+#### Usage of StatefulWidget
 ```dart
 class SampleAppPage extends StatefulWidget {
   SampleAppPage({Key key}) : super(key: key);
@@ -57,7 +57,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 @[12-17](upadte textToShow)
 @[24](refresh display content)
 ---
-@size[26em](Usage of StatelessWidget)
+#### Usage of StatelessWidget
 ```dart
 class SampleApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -75,25 +75,25 @@ class SampleApp extends StatelessWidget {
 ```
 @[3-12](override build method to return custom StatelessWidget)
 ---
-@size[26em](How Widgets Work)
+#### How Widgets Work
 A widget is an immutable @color[blue](description) of part of a UI. Widgets can be inflated into @color[blue](elements), which manage the underlying @color[blue](render tree)
 +++
-### Widgets
+#### Widgets
 Describes the configuration for an Element
 +++
-### Elements
+#### Elements
 An instantiation of a Widget at a particular location in the tree
-![Elements Tree]()
+![Elements Tree](assets/chatflutter/img/elements.png)
 +++
-### RenderObject
-![Layout Data Flow]()
+#### RenderObject
+![Layout Data Flow](assets/chatflutter/img/layout.png)
 +++
-### Graphics Pipeline
-![Graphics Pipeline]()
+#### Graphics Pipeline
+![Graphics Pipeline](assets/chatflutter/img/graphics_pipeline.png)
 +++
-![Graphics Pipeline2]()
+![Graphics Pipeline2](assets/chatflutter/img/graphics_pipeline2.png)
 ---
-### About Dart
+#### About Dart
 @ul
 - Single thread
 - Isolate
@@ -101,27 +101,27 @@ An instantiation of a Widget at a particular location in the tree
 - JIT & AOT
 @ulend
 ---
-### Single thread
+#### Single thread
 All code run in the same isolate (defualt)
 One Event-Loop,  Two Queues
 +++
-![Event-Loop and Queues]()
+![Event-Loop and Queues](assets/chatflutter/img/event_loop2.png)
 ---
-### What's @color[blue](Isolate)?
+#### What's @color[blue](Isolate)?
 Isolate Thread Process
 ![Isolate memory]()
 ---
-### Asynchroy in Dart
+#### Asynchroy in Dart
 @ul
 - Future
 - async & await
 @ulend
 +++
-### Future Simple
+#### Future Simple
 +++
-### async & await Simple
+#### async & await Simple
 +++
-### "Asynchroy"
+#### "Asynchroy"
 
 
 
