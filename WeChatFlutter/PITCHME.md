@@ -1,11 +1,12 @@
 ---
 
-## Something @color[blue](Flutter)
+# We Chat @color[84CDF4](Flu)@color[6DB8F2](tt)@color[2F5993](er)
 - Widget
 - About Dart
 
 ---
-#### Everything's a Widget
+
+## Everything's a Widget
 @ul
 - StatefulWidget
 - StatelessWidget
@@ -14,8 +15,10 @@
 ![Stateful and Stateless](assets/chatflutter/img/stateful_stateless.png)
 +++
 ![Widget catalog](assets/chatflutter/img/catalog.png)
+
 ---
-#### Usage of StatefulWidget
+
+## Usage of StatefulWidget
 ```dart
 class SampleAppPage extends StatefulWidget {
   SampleAppPage({Key key}) : super(key: key);
@@ -56,8 +59,10 @@ class _SampleAppPageState extends State<SampleAppPage> {
 @[26](when floatingActionButton pressed, call _updateText method)
 @[12-17](upadte textToShow)
 @[24](refresh display content)
+
 ---
-#### Usage of StatelessWidget
+
+## Usage of StatelessWidget
 ```dart
 class SampleApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -74,54 +79,146 @@ class SampleApp extends StatelessWidget {
 }
 ```
 @[3-12](override build method to return custom StatelessWidget)
+
 ---
-#### How Widgets Work
-A widget is an immutable @color[blue](description) of part of a UI. Widgets can be inflated into @color[blue](elements), which manage the underlying @color[blue](render tree)
+
+## How Widgets Work
+A widget is an immutable @color[6DB8F2](description) of part of a UI. Widgets can be inflated into @color[6DB8F2](elements), which manage the underlying @color[6DB8F2](render tree)
+
 +++
-#### Widgets
+
+## Widgets
 Describes the configuration for an Element
+
 +++
-#### Elements
+
+## Elements
 An instantiation of a Widget at a particular location in the tree
 ![Elements Tree](assets/chatflutter/img/elements.png)
+
 +++
-#### RenderObject
+
+## RenderObject
 ![Layout Data Flow](assets/chatflutter/img/layout.png)
+
 +++
-#### Graphics Pipeline
+
+## Graphics Pipeline
 ![Graphics Pipeline](assets/chatflutter/img/graphics_pipeline.png)
+
 +++
+
 ![Graphics Pipeline2](assets/chatflutter/img/graphics_pipeline2.png)
+
 ---
-#### About Dart
+
+## About Dart
 @ul
 - Single thread
 - Isolate
 - Asynchrony
 - JIT & AOT
 @ulend
+
 ---
-#### Single thread
+
+## Single thread
 All code run in the same isolate (defualt)
 One Event-Loop,  Two Queues
+
 +++
+
 ![Event-Loop and Queues](assets/chatflutter/img/event_loop2.png)
+
 ---
-#### What's @color[blue](Isolate)?
+
+## What's @color[6DB8F2](Isolate)?
 Isolate Thread Process
 ![Isolate memory]()
+
 ---
-#### Asynchroy in Dart
+
+## Asynchroy in Dart
 @ul
-- Future
+- Future 
+ - A Future represents a means for getting a value sometime in the future
 - async & await
+ - added in Dart 1.9, Syntactic sugar
 @ulend
+
 +++
-#### Future Simple
+
+## Future Simple
+```dart
+import 'dart:async';
+
+main() {
+  printDailyNewsDigest();
+  printWinningLotteryNumbers();
+}
+
+printWinningLotteryNumbers() {
+  print('Winning lotto numbers: [23, 63, 87, 26, 2]');
+}
+
+printDailyNewsDigest() {
+  final future = gatherNewsReports();
+  future.then((news) => print(news));
+}
+
+const news = '<gathered news goes here>';
+
+const oneSecond = Duration(seconds: 1);
+final newsStream = new Stream.periodic(oneSecond, (_) => news);
+
+// Imagine that this function is more complex and slow. :)
+Future<String> gatherNewsReports() => newsStream.first;
+```
+@[3-6](program entry)
+@[8-10,12-15]()
+@[17-23]()
+
 +++
-#### async & await Simple
+
+## async & await Simple
+```dart
+import 'dart:async';
+
+main() {
+  printDailyNewsDigest();
+  printWinningLotteryNumbers();
+}
+
+printWinningLotteryNumbers() {
+  print('Winning lotto numbers: [23, 63, 87, 26, 2]');
+}
+
+printDailyNewsDigest() async {
+  String news = await gatherNewsReports();
+  print(news);
+}
+
+const news = '<gathered news goes here>';
+
+const oneSecond = Duration(seconds: 1);
+final newsStream = new Stream.periodic(oneSecond, (_) => news);
+
+// Imagine that this function is more complex and slow. :)
+Future<String> gatherNewsReports() => newsStream.first;
+```
+@[3-6](program entry)
+@[8-10,12-15]()
+@[17-23]()
+
 +++
-#### "Asynchroy"
+
+## "Asynchroy"
+In One Isolate, One Event-Loop
+
+---
+
+## JIT & AOT
+
 
 
 
