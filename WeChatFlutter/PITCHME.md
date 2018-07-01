@@ -1,24 +1,33 @@
 ---
 
 # We Chat @color[#84CDF4](Flu)@color[#6DB8F2](tt)@color[#2F5993](er)
-- Widget
+- catsuo
+- 2018.07.06
+
+---
+
+- About Widget
 - About Dart
 
 ---
 
-## Everything's a Widget
+**Everything's a Widget**
 @ul
 - StatefulWidget
 - StatelessWidget
 @ulend
+
 +++
+
 ![Stateful and Stateless](assets/chatflutter/img/stateful_stateless.png)
+
 +++
+
 ![Widget catalog](assets/chatflutter/img/catalog.png)
 
 ---
 
-## Usage of StatefulWidget
+**Usage of StatefulWidget**
 ```dart
 class SampleAppPage extends StatefulWidget {
   SampleAppPage({Key key}) : super(key: key);
@@ -62,7 +71,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 
 ---
 
-## Usage of StatelessWidget
+**Usage of StatelessWidget**
 ```dart
 class SampleApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -82,28 +91,30 @@ class SampleApp extends StatelessWidget {
 
 ---
 
-## How Widgets Work
+**How Widgets Work**
 A widget is an immutable @color[#6DB8F2](description) of part of a UI. Widgets can be inflated into @color[#6DB8F2](elements), which manage the underlying @color[#6DB8F2](render tree)
 
 +++
 
-## Widgets
+**Widgets**
 Describes the configuration for an Element
+(layout.xml in Android)
 
 +++
 
-## Elements
+**Elements**
 An instantiation of a Widget at a particular location in the tree
+(View in Android)
 ![Elements Tree](assets/chatflutter/img/elements.png)
 
 +++
 
-## RenderObject
+**RenderObject**
 ![Layout Data Flow](assets/chatflutter/img/layout.png)
 
 +++
 
-## Graphics Pipeline
+**Graphics Pipeline**
 ![Graphics Pipeline](assets/chatflutter/img/graphics_pipeline.png)
 
 +++
@@ -112,7 +123,7 @@ An instantiation of a Widget at a particular location in the tree
 
 ---
 
-## About Dart
+**About Dart**
 @ul
 - Single thread
 - Isolate
@@ -122,7 +133,7 @@ An instantiation of a Widget at a particular location in the tree
 
 ---
 
-## Single thread
+**Single thread**
 All code run in the same isolate (defualt)
 One Event-Loop,  Two Queues
 
@@ -132,13 +143,13 @@ One Event-Loop,  Two Queues
 
 ---
 
-## What's @color[#6DB8F2](Isolate)?
+**What's @color[#6DB8F2](Isolate)?**
 Isolate Thread Process
 ![Isolate memory]()
 
 ---
 
-## Asynchroy in Dart
+**Asynchroy in Dart**
 @ul
 - Future 
  - A Future represents a means for getting a value sometime in the future
@@ -148,7 +159,7 @@ Isolate Thread Process
 
 +++
 
-## Future Simple
+**Future Simple**
 ```dart
 import 'dart:async';
 
@@ -180,7 +191,7 @@ Future<String> gatherNewsReports() => newsStream.first;
 
 +++
 
-## async & await Simple
+**async & await Simple**
 ```dart
 import 'dart:async';
 
@@ -212,12 +223,12 @@ Future<String> gatherNewsReports() => newsStream.first;
 
 +++
 
-## "Asynchroy"
+**"Asynchroy"**
 In One Isolate, One Event-Loop
 
 ---
 
-## JIT & AOT
+**JIT & AOT**
 
 
 
