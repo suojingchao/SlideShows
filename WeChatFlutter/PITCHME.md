@@ -12,6 +12,7 @@
 ---
 
 **Everything's a Widget**
+<br>
 @ul
 - StatefulWidget
 - StatelessWidget
@@ -28,6 +29,7 @@
 ---
 
 **Usage of StatefulWidget**
+<br>
 ```dart
 class SampleAppPage extends StatefulWidget {
   SampleAppPage({Key key}) : super(key: key);
@@ -72,6 +74,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 ---
 
 **Usage of StatelessWidget**
+<br>
 ```dart
 class SampleApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -92,17 +95,20 @@ class SampleApp extends StatelessWidget {
 ---
 
 **How Widgets Work**
+<br>
 A widget is an immutable @color[#6DB8F2](description) of part of a UI. Widgets can be inflated into @color[#6DB8F2](elements), which manage the underlying @color[#6DB8F2](render tree)
 
 +++
 
 **Widgets**
+<br>
 Describes the configuration for an Element
 (layout.xml in Android)
 
 +++
 
 **Elements**
+<br>
 An instantiation of a Widget at a particular location in the tree
 (View in Android)
 ![Elements Tree](assets/chatflutter/img/elements.png)
@@ -110,11 +116,13 @@ An instantiation of a Widget at a particular location in the tree
 +++
 
 **RenderObject**
+<br>
 ![Layout Data Flow](assets/chatflutter/img/layout.png)
 
 +++
 
 **Graphics Pipeline**
+<br>
 ![Graphics Pipeline](assets/chatflutter/img/graphics_pipeline.png)
 
 +++
@@ -124,8 +132,9 @@ An instantiation of a Widget at a particular location in the tree
 ---
 
 **About Dart**
+<br>
 @ul
-- Single thread
+- 单线程模型
 - Isolate
 - Asynchrony
 - JIT & AOT
@@ -133,7 +142,8 @@ An instantiation of a Widget at a particular location in the tree
 
 ---
 
-**Single thread**
+**单线程模型**
+<br>
 All code run in the same isolate (defualt)
 One Event-Loop,  Two Queues
 
@@ -144,12 +154,19 @@ One Event-Loop,  Two Queues
 ---
 
 **What's @color[#6DB8F2](Isolate)?**
-Isolate Thread Process
+<br>
+Isolate   Thread or Process
 ![Isolate memory]()
+
++++
+
+without shared memory
+without locks
 
 ---
 
 **Asynchroy in Dart**
+<br>
 @ul
 - Future 
  - A Future represents a means for getting a value sometime in the future
@@ -159,7 +176,8 @@ Isolate Thread Process
 
 +++
 
-**Future Simple**
+**Usage of Future**
+<br>
 ```dart
 import 'dart:async';
 
@@ -185,13 +203,16 @@ final newsStream = new Stream.periodic(oneSecond, (_) => news);
 // Imagine that this function is more complex and slow. :)
 Future<String> gatherNewsReports() => newsStream.first;
 ```
-@[3-6](program entry)
-@[8-10,12-15]()
-@[17-23]()
+@[3-6](程序入口)
+@[8-10,12-15](定义两个业务方法)
+@[13-14](调用gatherNewsReports方法，该方法返回一个Future类型,被认为是一个异步方法，于是可以使用返回的future的一些列api注册回调)
+@[17-23](模拟耗时操作，在1s后gatherNewsReport方法完成其真正的工作)
+@[14](这时候前面用Future.then方法注册的回调将会执行)
 
 +++
 
 **async & await Simple**
+<br>
 ```dart
 import 'dart:async';
 
@@ -217,19 +238,35 @@ final newsStream = new Stream.periodic(oneSecond, (_) => news);
 // Imagine that this function is more complex and slow. :)
 Future<String> gatherNewsReports() => newsStream.first;
 ```
-@[3-6](program entry)
-@[8-10,12-15]()
-@[17-23]()
+@[3-6](程序入口)
+@[8-10,12-15](定义两个业务方法。printDailyNewsDigest方法用async声明，表明这是一个异步方法)
+@[13-14](调用gatherNewsReports方法，该方法返回一个Future类型,被认为是一个异步方法。与之前直接处理返回的Future对象不同，此处使用await关键字调用异步方法)
+@[17-23](模拟耗时操作，在1s后gatherNewsReport方法完成其真正的工作)
 
 +++
 
 **"Asynchroy"**
-In One Isolate, One Event-Loop
+<br>
+一个Isolate， 一个Event-loop
+无法发挥CPU多核的优势
+(Android: handler.sendDelayMessage)
+
++++
+
+多个Isolate，实现真正的异步
 
 ---
 
 **JIT & AOT**
+<br>
+@ul
+- JIT
+ - 在开发阶段使用JIT方式编译，方便我们实现很棒的开发体验。尤其是其引以为傲的hot reload
+- AOT
+ - 在发布阶段使用AOT方式编译，直接将代码编译为本地代码。大大提高代码运行效率
+@ulend
 
+---
 
 
 
