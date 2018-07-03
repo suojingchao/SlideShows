@@ -19,9 +19,11 @@
 - RenderObject
 @ulend
 
-Widget定义UI的视图信息
-Flutter Framework使用Widget中定义的描述信息生成与之对应的Element，并由众多Element组成Elements Tree
-RenderObject由Element管理，完成整个树的Layout和Paint
++++
+
+- Widget定义UI的视图信息
+- Flutter Framework使用Widget中定义的描述信息生成与之对应的Element，并由众多Element组成Elements Tree
+- RenderObject由Element管理，完成整个树的Layout和Paint
 
 ---
 
@@ -90,9 +92,12 @@ class _SampleAppPageState extends State<SampleAppPage> {
 @[12-17](在这个方法内调用State类的setState方法，参数是一个无参的匿名函数，匿名函数中更新textToShow)
 @[24](自定义的Widget结构中有用到textToShow，onPressed事件处理后文本内容发生变化)
 
-State用来封装Widget中用到的需要在生命周期中改变的内容
-通过更新State中的内容，并将更新动作传递给State类的setState方法来通知Flutter Framework
-Flutter Framework会重新调用State类的build方法，进而刷新界面
+
++++
+
+- State用来封装Widget中用到的需要在生命周期中改变的内容
+- 通过更新State中的内容，并将更新动作传递给State类的setState方法来通知Flutter Framework
+- Flutter Framework会重新调用State类的build方法，进而刷新界面
 
 ---
 
