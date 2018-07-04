@@ -14,7 +14,7 @@
 ---
 
 **@color[#84CDF4](UI Framework)**
-<br>
+<br><br>
 @ul
 - Widget
 - Element
@@ -32,7 +32,7 @@
 ---
 
 **@color[#84CDF4](Widget)**
-<br>
+<br><br>
 @ul
 - 用Widget构建UI，重写build方法
 - Widget只是一个配置容器，其本身是不可变的
@@ -49,8 +49,9 @@
 +++
 
 **@color[#84CDF4](StatefulWidget)**
-<br>
+<br><br>
 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
+<br>
 build方法返回的才是其对应的物理组件
 
 +++
@@ -94,7 +95,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 @[8,19-32](自定义一个派生自State的类，重写其build方法返回与该State对应的自定Widget结构)
 @[26-30](为floatingActionButton设置一些列的属性，其中包括一个onPressd事件处理函数_updateText)
 @[12-17](在这个方法内调用State类的setState方法，参数是一个无参的匿名函数，匿名函数中更新textToShow)
-@[24](自定义的Widget结构中有用到textToShow，onPressed事件处理后文本内容发生变化)
+@[25](自定义的Widget结构中有用到textToShow，onPressed事件处理后文本内容发生变化)
 
 
 +++
@@ -106,8 +107,9 @@ class _SampleAppPageState extends State<SampleAppPage> {
 +++
 
 **@color[#84CDF4](StatelessWidget)**
-<br>
+<br><br>
 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
+<br>
 build方法返回的才是其对应的物理组件
 
 +++
@@ -132,14 +134,15 @@ class SampleApp extends StatelessWidget {
 +++
 
 **@color[#84CDF4](RenderObjectWidget)**
-<br>
+<br><br>
 具有实际的布局意义，这类型组件会对应一个具体的RenderObject
+<br>
 RenderObject用于对组件对应的Element进行layout和paint
 
 ---
 
 **@color[#84CDF4](Element)**
-<br>
+<br><br>
 与一个Widget对应，Widget会用自身的配置信息创建Element实例，同一个Widget有可能对应多个不同的Element实例
 在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的Element，所有Element形成一个Elements Tree
 
@@ -150,8 +153,9 @@ RenderObject用于对组件对应的Element进行layout和paint
 ---
 
 **@color[#84CDF4](RenderObject)**
-<br>
+<br><br>
 真正负责Widget内容的layout和paint
+<br>
 在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的RenderObhect，所有RenderObhect形成一个RenderObhects Tree
 @ul
 但 Elements Tree  !=  RenderObjects Tree
@@ -164,7 +168,9 @@ RenderObject用于对组件对应的Element进行layout和paint
 +++
 
 RenderObject的默认实现是RenderBox
+<br>
 RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
+<br>
 我们愿意的话可以实现自己的RenderObject
 
 +++?image=assets/chatflutter/img/RenderObject_Extend.png&size=auto 60%
@@ -175,7 +181,7 @@ RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
 +++
 
 **@color[#84CDF4](Graphics Pipeline)**
-<br>
+<br><br>
 
 +++?image=assets/chatflutter/img/graphics_pipeline.png&size=auto 80%
 
@@ -184,15 +190,15 @@ RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
 ---
 
 **Widget @color[#5d5d5d](advanced xml in Android)** 
-<br>
+<br><br>
 **Element @color[#5d5d5d](part of view in Android)** 
-<br>
+<br><br>
 **RenderObject @color[#5d5d5d](part of view in Android)** 
 
 ---
 
 **@color[#84CDF4](About Flutter - Tools)**
-<br>
+<br><br>
 Flutter Plugin for AS
 ![Performance Profiling](assets/chatflutter/img/visual_debugging.png)
 
@@ -207,7 +213,7 @@ Flutter Plugin for AS
 ---
 
 **@color[#84CDF4](About Dart)**
-<br>
+<br><br>
 @ul
 - 单线程模型
 - Isolate
@@ -218,8 +224,9 @@ Flutter Plugin for AS
 ---
 
 **@color[#84CDF4](单线程模型)**
-<br>
+<br><br>
 所有Dart代码运行在同一Isolate(默认情况下)
+<br>
 One Event-Loop,  Two Queues
 
 +++?image=assets/chatflutter/img/event_loop2.png&size=auto 80%
@@ -227,8 +234,9 @@ One Event-Loop,  Two Queues
 ---
 
 **@color[#84CDF4](Isolate?)**
-<br>
+<br><br>
 它类似于线程，也表示程序的最小执行单元
+<br>
 但不与其他Isolate共享内存
 
 +++?image=assets/chatflutter/img/Dart_Isolate.png&size=auto 80%
@@ -236,7 +244,7 @@ One Event-Loop,  Two Queues
 ---
 
 **@color[#84CDF4](Asynchroy in Dart)**
-<br>
+<br><br>
 @ul
 - Future 
  - 一个表示其结果可能在将来某个时间点才会返回的类。可以通过为其设置回调，回调方法会在其相关的任务完成后调用
@@ -247,7 +255,7 @@ One Event-Loop,  Two Queues
 +++
 
 **@color[#84CDF4](Future)**
-<br>
+<br><br>
 ```dart
 import 'dart:async';
 
@@ -282,7 +290,7 @@ Future<String> gatherNewsReports() => newsStream.first;
 +++
 
 **@color[#84CDF4](async & await)**
-<br>
+<br><br>
 ```dart
 import 'dart:async';
 
@@ -316,17 +324,17 @@ Future<String> gatherNewsReports() => newsStream.first;
 +++
 
 **@color[#84CDF4]("Asynchroy")**
-<br>
+<br><br>
 一个Isolate， 一个Event-loop
 @ul
-无法发挥CPU多核的优势
-多个Isolate，实现真正的异步
+- 无法发挥CPU多核的优势
+- 多个Isolate，实现真正的异步
 @ulend
 
 ---
 
 **@color[#84CDF4](JIT & AOT)**
-<br>
+<br><br>
 @ul
 - JIT
  - 在开发阶段采用JIT方式编译，提升开发体验。尤其是其引以为傲的hot reload
@@ -336,6 +344,8 @@ Future<String> gatherNewsReports() => newsStream.first;
 
 ---
 
+# @color[#84CDF4](END) 
+## @color[#84CDF4](THANK YOU)
 
 
 
