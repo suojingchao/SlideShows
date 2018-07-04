@@ -35,28 +35,31 @@
 
 **Widget**
 <br>
-@ul
-- 用Widget构建UI
-- Widget只是一个配置容器，其本身是不可变的
- - advanced xml布局文件
-- Everything's a Widget
- - StatefulWidget
- - StatelessWidget
-@ulend
+@color[#84CDF4](Points)
 
 +++
 
-![Stateful and Stateless](assets/chatflutter/img/stateful_stateless.png)
+@ul
+- 用Widget构建UI，重写build方法
+- Widget只是一个配置容器，其本身是不可变的
+- Widget分类
+ - StatefulWidget @size[4em]@color[#84CDF4](逻辑组件)
+ - StatelessWidget @size[4em]@color[#84CDF4](逻辑组件)
+ - RenderObjectWidget @size[4em]@color[#84CDF4](物理组件)
+@ulend
 
 +++
 
 ![Widget catalog](assets/chatflutter/img/catalog_widgets.png)
 [Click Me](https://flutter.io/widgets/)
 
----
++++
 
 **StatefulWidget**
 <br>
+没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
+build方法返回的才是其对应的物理组件
+
 ```dart
 class SampleAppPage extends StatefulWidget {
   SampleAppPage({Key key}) : super(key: key);
@@ -105,10 +108,13 @@ class _SampleAppPageState extends State<SampleAppPage> {
 - 通过更新State中的内容，并将更新动作传递给State类的setState方法来通知Flutter Framework
 - Flutter Framework会重新调用State类的build方法，进而刷新界面
 
----
++++
 
 **StatelessWidget**
 <br>
+没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
+build方法返回的才是其对应的物理组件
+
 ```dart
 class SampleApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -126,18 +132,50 @@ class SampleApp extends StatelessWidget {
 ```
 @[3-12](重写StatelessWidget类的build方法，返回自定义的Widget结构。它没有可变的State，在UI刷新时如果不是add/remove，系统可以忽略该部分信息)
 
++++
+
+**RenderObjectWidget**
+<br>
+具有实际的布局意义，这类型组件会对应一个具体的RenderObject
+RenderObject用于对组件对应的Element进行layout和paint
+
 ---
 
-**Elements**
+**Element**
 <br>
-An instantiation of a Widget at a particular location in the tree
-(View in Android)
+与一个Widget对应，Widget会用自身的配置信息创建Element实例，同一个Widget有可能对应多个不同的Element实例
+在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的Element，所有Element形成一个Elements Tree
+
++++
+
 ![Elements Tree](assets/chatflutter/img/elements.png)
 
 ---
 
 **RenderObject**
 <br>
+真正负责Widget内容的layout和paint
+在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的RenderObhect，所有RenderObhect形成一个RenderObhects Tree
+@ul
+@size[6em]@color[#84CDF4](但) Elements Tree  !=  RenderObjects Tree
+@ulend
+
++++
+
+逻辑组件没有与其对应的RenderObject，因为对他们layout和paint没有实际意义
+
++++
+
+RenderObject的默认实现是RenderBox
+RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
+我们愿意的话可以实现自己的RenderObject
+
++++
+
+![RenderBox](assets/chatflutter/img/RenderObject_Extend.png)
+
++++
+
 ![Layout Data Flow](assets/chatflutter/img/layout.png)
 
 +++
@@ -152,9 +190,27 @@ An instantiation of a Widget at a particular location in the tree
 
 ---
 
-**About Flutter - UI Framework**
+**Widget @size[3em](@color[#84CDF4](advanced xml in Android))** 
 <br>
+**Element @size[3em](@color[#84CDF4](part of view in Android))** 
+<br>
+**RenderObject @size[3em](@color[#84CDF4](part of view in Android))** 
 
+
+---
+
+**About Flutter - Tools**
+<br>
+Flutter Plugin for AS
+![Performance Profiling](assets/chatflutter/img/visual_debugging.png)
+
++++
+
+![Performance Profiling](assets/chatflutter/img/performance-overlay-green.png)
+
++++
+
+![Performance Profiling](assets/chatflutter/img/performance-overlay-jank.png)
 
 ---
 
@@ -276,11 +332,10 @@ Future<String> gatherNewsReports() => newsStream.first;
 <br>
 一个Isolate， 一个Event-loop
 无法发挥CPU多核的优势
-(Android: handler.sendDelayMessage)
 
 +++
 
-多个Isolate，实现真正的异步
+@[#6DB8F2](多个Isolate)，实现真正的异步
 
 ---
 
@@ -288,9 +343,9 @@ Future<String> gatherNewsReports() => newsStream.first;
 <br>
 @ul
 - JIT
- - 在开发阶段使用JIT方式编译，方便我们实现很棒的开发体验。尤其是其引以为傲的hot reload
+ - 在开发阶段采用JIT方式编译，提升开发体验。尤其是其引以为傲的hot reload
 - AOT
- - 在发布阶段使用AOT方式编译，直接将代码编译为本地代码。大大提高代码运行效率
+ - 在发布阶段采用AOT方式编译，直接将代码编译为本地代码。提高代码运行效率
 @ulend
 
 ---
