@@ -1,2 +1,4 @@
 
 theme : Black
+background-opacity : 75
+background : assets/chatflutter/img/bg.png
