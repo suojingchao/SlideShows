@@ -10,6 +10,10 @@
  - UI Framework
  - Tools
 - @color[#84CDF4](About Dart)
+ - 单线程模型
+ - Isolate
+ - Asynchrony
+ - JIT & AOT
 
 ---
 
@@ -167,16 +171,19 @@ RenderObject用于对组件对应的Element进行layout和paint
 
 +++
 
-RenderObject的默认实现是RenderBox
-<br>
-RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
-<br>
-我们愿意的话可以实现自己的RenderObject
+@ul
+- RenderObject的默认实现是RenderBox
+- RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
+- 我们愿意的话可以实现自己的RenderObject
+@ulend
 
-+++?image=assets/chatflutter/img/RenderObject_Extend.png&size=auto 60%
++++
 
+<img src="https://github.com/suojingchao/SlideShows/blob/master/assets/chatflutter/img/RenderObject_Extend.png" width="auto" height="60%" />
 
-+++?image=assets/chatflutter/img/layout.png&size=auto 80%
++++
+
+![image](assets/chatflutter/img/layout.png)
 
 +++
 
@@ -200,6 +207,7 @@ RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
 **@color[#84CDF4](About Flutter - Tools)**
 <br><br>
 Flutter Plugin for AS
+<br>
 ![Performance Profiling](assets/chatflutter/img/visual_debugging.png)
 
 +++
