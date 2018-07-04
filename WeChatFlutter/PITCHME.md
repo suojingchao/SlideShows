@@ -54,10 +54,10 @@
 
 **@color[#84CDF4](StatefulWidget)**
 <br><br>
-没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
-<br>
-build方法返回的才是其对应的物理组件
-
+@ul
+- 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
+- build方法返回的才是其对应的物理组件
+@ulend
 +++
 
 ```dart
@@ -104,17 +104,20 @@ class _SampleAppPageState extends State<SampleAppPage> {
 
 +++
 
+@ul
 - State用来封装Widget中用到的需要在生命周期中改变的内容
 - 通过更新State中的内容，并将更新动作传递给State类的setState方法来通知Flutter Framework
 - Flutter Framework会重新调用State类的build方法，进而刷新界面
+@ulend
 
 +++
 
 **@color[#84CDF4](StatelessWidget)**
 <br><br>
-没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
-<br>
-build方法返回的才是其对应的物理组件
+@ul
+- 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
+- build方法返回的才是其对应的物理组件
+@ulend
 
 +++
 
@@ -139,16 +142,19 @@ class SampleApp extends StatelessWidget {
 
 **@color[#84CDF4](RenderObjectWidget)**
 <br><br>
-具有实际的布局意义，这类型组件会对应一个具体的RenderObject
-<br>
-RenderObject用于对组件对应的Element进行layout和paint
+@ul
+- 具有实际的布局意义，这类型组件会对应一个具体的RenderObject
+- RenderObject用于对组件对应的Element进行layout和paint
+@ulend
 
 ---
 
 **@color[#84CDF4](Element)**
 <br><br>
-与一个Widget对应，Widget会用自身的配置信息创建Element实例，同一个Widget有可能对应多个不同的Element实例
-在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的Element，所有Element形成一个Elements Tree
+@ul
+- 与一个Widget对应，Widget会用自身的配置信息创建Element实例，同一个Widget有可能对应多个不同的Element实例
+- 在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的Element，所有Element形成一个Elements Tree
+@ulend
 
 +++
 
@@ -158,11 +164,10 @@ RenderObject用于对组件对应的Element进行layout和paint
 
 **@color[#84CDF4](RenderObject)**
 <br><br>
-真正负责Widget内容的layout和paint
-<br>
-在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的RenderObhect，所有RenderObhect形成一个RenderObhects Tree
 @ul
-但 Elements Tree  !=  RenderObjects Tree
+- 真正负责Widget内容的layout和paint
+- 在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的RenderObhect，所有RenderObhect形成一个RenderObhects Tree
+- 但 Elements Tree  !=  RenderObjects Tree
 @ulend
 
 +++
@@ -179,7 +184,8 @@ RenderObject用于对组件对应的Element进行layout和paint
 
 +++
 
-<img src="https://raw.githubusercontent.com/suojingchao/SlideShows/master/assets/chatflutter/img/RenderObject_Extend.png" width="auto" height="60%" />
+![image](assets/chatflutter/img/RenderObject_Extend.png)
+
 
 +++
 
