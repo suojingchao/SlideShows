@@ -6,14 +6,14 @@
 
 ---
 
-- About Flutter
+- About @color[#84CDF4](Flutter)
  - UI Framework
  - Tools
-- About Dart
+- About @color[#55A6EE](Dart)
 
 ---
 
-**About Flutter - UI Framework**
+**UI Framework**
 <br>
 @ul
 - Widget
@@ -27,9 +27,7 @@
 - 系统使用Widget中定义的描述信息生成与之对应的Element，并由众多Element组成Elements Tree
 - RenderObject由Element管理，完成整个树的Layout和Paint
 
-+++
-
-![drawFrame](assets/chatflutter/img/Flutter_DrawFrame.png)
++++?image=assets/chatflutter/img/Flutter_DrawFrame.png&size=80% 80%
 
 ---
 
@@ -43,14 +41,13 @@
 - 用Widget构建UI，重写build方法
 - Widget只是一个配置容器，其本身是不可变的
 - Widget分类
- - StatefulWidget @size[4em]@color[#84CDF4](逻辑组件)
- - StatelessWidget @size[4em]@color[#84CDF4](逻辑组件)
- - RenderObjectWidget @size[4em]@color[#84CDF4](物理组件)
+ - StatefulWidget @color[#84CDF4](逻辑组件)
+ - StatelessWidget @color[#84CDF4](逻辑组件)
+ - RenderObjectWidget @color[#84CDF4](物理组件)
 @ulend
 
-+++
++++?image=assets/chatflutter/img/catalog_widgets.png&size=80% 80%
 
-![Widget catalog](assets/chatflutter/img/catalog_widgets.png)
 [Click Me](https://flutter.io/widgets/)
 
 +++
@@ -59,6 +56,8 @@
 <br>
 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
 build方法返回的才是其对应的物理组件
+
++++
 
 ```dart
 class SampleAppPage extends StatefulWidget {
@@ -114,6 +113,8 @@ class _SampleAppPageState extends State<SampleAppPage> {
 <br>
 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
 build方法返回的才是其对应的物理组件
+
++++
 
 ```dart
 class SampleApp extends StatelessWidget {
@@ -190,11 +191,11 @@ RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
 
 ---
 
-**Widget @size[3em](@color[#84CDF4](advanced xml in Android))** 
+**Widget @color[#84CDF4](advanced xml in Android)** 
 <br>
-**Element @size[3em](@color[#84CDF4](part of view in Android))** 
+**Element @color[#84CDF4](part of view in Android)** 
 <br>
-**RenderObject @size[3em](@color[#84CDF4](part of view in Android))** 
+**RenderObject @color[#84CDF4](part of view in Android)** 
 
 
 ---
