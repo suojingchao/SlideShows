@@ -6,14 +6,14 @@
 
 ---
 
-- About @color[#84CDF4](Flutter)
+- @color[#84CDF4](About Flutter)
  - UI Framework
  - Tools
-- About @color[#55A6EE](Dart)
+- @color[#84CDF4](About Dart)
 
 ---
 
-**UI Framework**
+**@color[#84CDF4](UI Framework)**
 <br>
 @ul
 - Widget
@@ -27,16 +27,12 @@
 - 系统使用Widget中定义的描述信息生成与之对应的Element，并由众多Element组成Elements Tree
 - RenderObject由Element管理，完成整个树的Layout和Paint
 
-+++?image=assets/chatflutter/img/Flutter_DrawFrame.png&size=80% 80%
++++?image=assets/chatflutter/img/Flutter_DrawFrame.png&size=auto 80%
 
 ---
 
-**Widget**
+**@color[#84CDF4](Widget)**
 <br>
-@color[#84CDF4](Points)
-
-+++
-
 @ul
 - 用Widget构建UI，重写build方法
 - Widget只是一个配置容器，其本身是不可变的
@@ -46,13 +42,13 @@
  - RenderObjectWidget @color[#84CDF4](物理组件)
 @ulend
 
-+++?image=assets/chatflutter/img/catalog_widgets.png&size=80% 80%
++++?image=assets/chatflutter/img/catalog_widgets.png&size=auto 80%
 
 [Click Me](https://flutter.io/widgets/)
 
 +++
 
-**StatefulWidget**
+**@color[#84CDF4](StatefulWidget)**
 <br>
 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
 build方法返回的才是其对应的物理组件
@@ -109,7 +105,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 
 +++
 
-**StatelessWidget**
+**@color[#84CDF4](StatelessWidget)**
 <br>
 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
 build方法返回的才是其对应的物理组件
@@ -135,14 +131,14 @@ class SampleApp extends StatelessWidget {
 
 +++
 
-**RenderObjectWidget**
+**@color[#84CDF4](RenderObjectWidget)**
 <br>
 具有实际的布局意义，这类型组件会对应一个具体的RenderObject
 RenderObject用于对组件对应的Element进行layout和paint
 
 ---
 
-**Element**
+**@color[#84CDF4](Element)**
 <br>
 与一个Widget对应，Widget会用自身的配置信息创建Element实例，同一个Widget有可能对应多个不同的Element实例
 在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的Element，所有Element形成一个Elements Tree
@@ -153,12 +149,12 @@ RenderObject用于对组件对应的Element进行layout和paint
 
 ---
 
-**RenderObject**
+**@color[#84CDF4](RenderObject)**
 <br>
 真正负责Widget内容的layout和paint
 在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的RenderObhect，所有RenderObhect形成一个RenderObhects Tree
 @ul
-@size[6em]@color[#84CDF4](但) Elements Tree  !=  RenderObjects Tree
+但 Elements Tree  !=  RenderObjects Tree
 @ulend
 
 +++
@@ -171,36 +167,31 @@ RenderObject的默认实现是RenderBox
 RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
 我们愿意的话可以实现自己的RenderObject
 
-+++
++++?image=assets/chatflutter/img/RenderObject_Extend.png&size=auto 60%
 
-![RenderBox](assets/chatflutter/img/RenderObject_Extend.png)
 
-+++
-
-![Layout Data Flow](assets/chatflutter/img/layout.png)
++++?image=assets/chatflutter/img/layout.png&size=auto 80%
 
 +++
 
-**Graphics Pipeline**
+**@color[#84CDF4](Graphics Pipeline)**
 <br>
-![Graphics Pipeline](assets/chatflutter/img/graphics_pipeline.png)
 
-+++
++++?image=assets/chatflutter/img/graphics_pipeline.png&size=auto 80%
 
-![Graphics Pipeline2](assets/chatflutter/img/graphics_pipeline2.png)
++++?image=assets/chatflutter/img/graphics_pipeline2.png&size=auto 80%
 
 ---
 
-**Widget @color[#84CDF4](advanced xml in Android)** 
+**Widget @color[#5d5d5d](advanced xml in Android)** 
 <br>
-**Element @color[#84CDF4](part of view in Android)** 
+**Element @color[#5d5d5d](part of view in Android)** 
 <br>
-**RenderObject @color[#84CDF4](part of view in Android)** 
-
+**RenderObject @color[#5d5d5d](part of view in Android)** 
 
 ---
 
-**About Flutter - Tools**
+**@color[#84CDF4](About Flutter - Tools)**
 <br>
 Flutter Plugin for AS
 ![Performance Profiling](assets/chatflutter/img/visual_debugging.png)
@@ -215,7 +206,7 @@ Flutter Plugin for AS
 
 ---
 
-**About Dart**
+**@color[#84CDF4](About Dart)**
 <br>
 @ul
 - 单线程模型
@@ -226,41 +217,36 @@ Flutter Plugin for AS
 
 ---
 
-**单线程模型**
+**@color[#84CDF4](单线程模型)**
 <br>
-All code run in the same isolate (defualt)
+所有Dart代码运行在同一Isolate(默认情况下)
 One Event-Loop,  Two Queues
 
-+++
-
-![Event-Loop and Queues](assets/chatflutter/img/event_loop2.png)
++++?image=assets/chatflutter/img/event_loop2.png&size=auto 80%
 
 ---
 
-**What's @color[#6DB8F2](Isolate)?**
+**@color[#84CDF4](Isolate?)**
 <br>
-Isolate   Thread or Process
-![Isolate memory](assets/chatflutter/img/Dart_Isolate.png)
+它类似于线程，也表示程序的最小执行单元
+但不与其他Isolate共享内存
 
-+++
-
-without shared memory
-without locks
++++?image=assets/chatflutter/img/Dart_Isolate.png&size=auto 80%
 
 ---
 
-**Asynchroy in Dart**
+**@color[#84CDF4](Asynchroy in Dart)**
 <br>
 @ul
 - Future 
- - A Future represents a means for getting a value sometime in the future
+ - 一个表示其结果可能在将来某个时间点才会返回的类。可以通过为其设置回调，回调方法会在其相关的任务完成后调用
 - async & await
- - added in Dart 1.9, Syntactic sugar
+ - Dart1.9加入的语法糖，本质也是实现异步操作
 @ulend
 
 +++
 
-**Future**
+**@color[#84CDF4](Future)**
 <br>
 ```dart
 import 'dart:async';
@@ -295,7 +281,7 @@ Future<String> gatherNewsReports() => newsStream.first;
 
 +++
 
-**async & await Simple**
+**@color[#84CDF4](async & await)**
 <br>
 ```dart
 import 'dart:async';
@@ -329,18 +315,17 @@ Future<String> gatherNewsReports() => newsStream.first;
 
 +++
 
-**"Asynchroy"**
+**@color[#84CDF4]("Asynchroy")**
 <br>
 一个Isolate， 一个Event-loop
+@ul
 无法发挥CPU多核的优势
-
-+++
-
-@[#6DB8F2](多个Isolate)，实现真正的异步
+多个Isolate，实现真正的异步
+@ulend
 
 ---
 
-**JIT & AOT**
+**@color[#84CDF4](JIT & AOT)**
 <br>
 @ul
 - JIT
