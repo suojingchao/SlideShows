@@ -179,7 +179,7 @@ RenderObject用于对组件对应的Element进行layout和paint
 
 +++
 
-<img src="https://github.com/suojingchao/SlideShows/blob/master/assets/chatflutter/img/RenderObject_Extend.png" width="auto" height="60%" />
+<img src="https://raw.githubusercontent.com/suojingchao/SlideShows/master/assets/chatflutter/img/RenderObject_Extend.png" width="auto" height="60%" />
 
 +++
 
