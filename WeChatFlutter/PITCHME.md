@@ -6,12 +6,14 @@
 
 ---
 
-- About UI Framework
+- About Flutter
+ - UI Framework
+ - Tools
 - About Dart
 
 ---
 
-**About UI Framework**
+**About Flutter - UI Framework**
 <br>
 @ul
 - Widget
@@ -22,12 +24,16 @@
 +++
 
 - Widget定义UI的视图信息
-- Flutter Framework使用Widget中定义的描述信息生成与之对应的Element，并由众多Element组成Elements Tree
+- 系统使用Widget中定义的描述信息生成与之对应的Element，并由众多Element组成Elements Tree
 - RenderObject由Element管理，完成整个树的Layout和Paint
+
++++
+
+![drawFrame](assets/chatflutter/img/Flutter_DrawFrame.png)
 
 ---
 
-**About Widget**
+**Widget**
 <br>
 @ul
 - 用Widget构建UI
@@ -122,7 +128,7 @@ class SampleApp extends StatelessWidget {
 
 ---
 
-**About Elements**
+**Elements**
 <br>
 An instantiation of a Widget at a particular location in the tree
 (View in Android)
@@ -130,7 +136,7 @@ An instantiation of a Widget at a particular location in the tree
 
 ---
 
-**About RenderObject**
+**RenderObject**
 <br>
 ![Layout Data Flow](assets/chatflutter/img/layout.png)
 
@@ -143,6 +149,12 @@ An instantiation of a Widget at a particular location in the tree
 +++
 
 ![Graphics Pipeline2](assets/chatflutter/img/graphics_pipeline2.png)
+
+---
+
+**About Flutter - UI Framework**
+<br>
+
 
 ---
 
@@ -171,7 +183,7 @@ One Event-Loop,  Two Queues
 **What's @color[#6DB8F2](Isolate)?**
 <br>
 Isolate   Thread or Process
-![Isolate memory]()
+![Isolate memory](assets/chatflutter/img/Dart_Isolate.png)
 
 +++
 
@@ -191,7 +203,7 @@ without locks
 
 +++
 
-**Usage of Future**
+**Future**
 <br>
 ```dart
 import 'dart:async';
