@@ -59,6 +59,7 @@
 - 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
 - 与一个可变的State绑定在一起
 @ulend
+
 +++
 
 ```dart
@@ -175,11 +176,6 @@ class SampleApp extends StatelessWidget {
 
 +++
 
-![image](assets/chatflutter/img/RenderObject_Extend.png)
-
-
-+++
-
 ![image](assets/chatflutter/img/layout.png)
 
 +++
@@ -215,6 +211,24 @@ Flutter Plugin for AS
 
 ![Performance Profiling](assets/chatflutter/img/performance-overlay-jank.png)
 
++++
+
+Flutter Threads
+@ul
+- Platform Thread
+ - 对应平台的主线程（Android MainThread），与平台通信的Plugin的代码就运行在这个线程
+- UI Thread
+ - 这个线程运行Dart Code，包括应用开发者写的和Flutter Framework包含的
+- GPU Thread
+ - Skia，Graphics library运行在这个线程，类似Android RenderThread
+- I/O Thread
+ - 完成一些繁重的任务，比如I/O任务
+@ulend
+
++++
+
+![Inspector UI](assets/chatflutter/img/assetswitch_inspector_tree.gif)
+
 ---
 
 **@color[#84CDF4](About Dart)**
@@ -247,7 +261,7 @@ Flutter Plugin for AS
 +++
 
 @ul
-- Dart也是基于Event-Looper及Event-Queue模型
+- Dart也基于Event-Looper和Queue的模型
 - 一个Isolate中包含一个Event-Looper和两个Queue
 @ulend
 
