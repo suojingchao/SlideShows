@@ -189,11 +189,11 @@ class SampleApp extends StatelessWidget {
 
 ---
 
-**Widget @color[#5d5d5d](advanced xml in Android)** 
+**Widget @color[#84CDF4](advanced xml in Android)** 
 <br><br>
-**Element @color[#5d5d5d](part of view in Android)** 
+**Element @color[#84CDF4](part of view in Android)** 
 <br><br>
-**RenderObject @color[#5d5d5d](part of view in Android)** 
+**RenderObject @color[#84CDF4](part of view in Android)** 
 
 ---
 
@@ -224,10 +224,6 @@ Flutter Threads
 - I/O Thread
  - 完成一些繁重的任务，比如I/O任务
 @ulend
-
-+++
-
-![Inspector UI](assets/chatflutter/img/assetswitch_inspector_tree.gif)
 
 ---
 
