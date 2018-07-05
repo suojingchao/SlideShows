@@ -327,7 +327,7 @@ Future<String> gatherNewsReports() => newsStream.first;
 ```
 @[3-6](程序入口)
 @[8-10,12-15](定义两个业务方法)
-@[13-14](调用gatherNewsReports方法，该方法返回一个Future类型,被认为是一个异步方法，于是可以使用返回的future的一些列api注册回调)
+@[13-14](调用gatherNewsReports方法，该方法返回一个Future类型,被认为是一个异步方法，可以使用Future的then方法注册回调)
 @[17-23](模拟耗时操作，在1s后gatherNewsReport方法完成其真正的工作)
 @[14](这时候前面用Future.then方法注册的回调将会执行)
 
@@ -367,7 +367,7 @@ Future<String> gatherNewsReports() => newsStream.first;
 
 +++
 
-**@size[8em]("Asynchroy")**
+**@size[1.8em]("Asynchroy")**
 <br><br>
 @ul
 - 无法发挥CPU多核的优势
