@@ -1,4 +1,4 @@
----
+---?image=assets/chatflutter/img/bg.jpg&size=100% 100%
 
 # We Chat @color[#84CDF4](Flu)@color[#6DB8F2](tt)@color[#2F5993](er)
 - catsuo
