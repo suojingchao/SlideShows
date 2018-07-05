@@ -11,9 +11,18 @@
  - Tools
 - @color[#84CDF4](About Dart)
  - 单线程模型
- - Isolate
  - Asynchrony
  - JIT & AOT
+
+---
+
+**@color[#84CDF4](About Flutter)**
+<br><br>
+@ul
+- Google开发的跨平台移动应用开发SDK，同时也将是Google Fuchsia下开发应用的主要工具
+- 第一个版本被称作“天空”。 于2015年的Flutter开发者会议上被公布，目标为实现120FPS的渲染性能
+- v0.5.6  --  10 days ago
+@ulend
 
 ---
 
@@ -25,30 +34,22 @@
 - RenderObject
 @ulend
 
-+++
-
-- Widget定义UI的视图信息
-- 系统使用Widget中定义的描述信息生成与之对应的Element，并由众多Element组成Elements Tree
-- RenderObject由Element管理，完成整个树的Layout和Paint
-
-+++?image=assets/chatflutter/img/Flutter_DrawFrame.png&size=auto 80%
-
 ---
 
 **@color[#84CDF4](Widget)**
 <br><br>
+[Everything's a Widget!](https://flutter.io/widgets/)
+
++++
+
 @ul
 - 用Widget构建UI，重写build方法
-- Widget只是一个配置容器，其本身是不可变的
+- Widget只是一个配置容器，其本身是静态的不可变的
 - Widget分类
  - StatefulWidget @color[#84CDF4](逻辑组件)
  - StatelessWidget @color[#84CDF4](逻辑组件)
  - RenderObjectWidget @color[#84CDF4](物理组件)
 @ulend
-
-+++?image=assets/chatflutter/img/catalog_widgets.png&size=auto 80%
-
-[Click Me](https://flutter.io/widgets/)
 
 +++
 
@@ -56,7 +57,7 @@
 <br><br>
 @ul
 - 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
-- build方法返回的才是其对应的物理组件
+- 与一个可变的State绑定在一起
 @ulend
 +++
 
@@ -116,7 +117,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 <br><br>
 @ul
 - 没有实际布局意义，其作用主要是将其他组件组合在一起通过build方法返回一个整体的结构
-- build方法返回的才是其对应的物理组件
+- 没有与之绑定的State，描述一个不可变的静态的布局结构
 @ulend
 
 +++
@@ -143,43 +144,33 @@ class SampleApp extends StatelessWidget {
 **@color[#84CDF4](RenderObjectWidget)**
 <br><br>
 @ul
-- 具有实际的布局意义，这类型组件会对应一个具体的RenderObject
-- RenderObject用于对组件对应的Element进行layout和paint
+- 具有实际的布局意义，这类型组件会创建一个对应的RenderObject
+- RenderObject用来渲染对应的Widget（layout paint）
+- 系统已经提供了很多RenderObjectWidget的实现可以满足大部分应用场景
 @ulend
 
 ---
 
-**@color[#84CDF4](Element)**
+**@color[#84CDF4](Element & RenderObject)**
 <br><br>
-@ul
-- 与一个Widget对应，Widget会用自身的配置信息创建Element实例，同一个Widget有可能对应多个不同的Element实例
-- 在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的Element，所有Element形成一个Elements Tree
-@ulend
 
-+++
+- Widget定义UI的描述信息
+- 系统使用Widget定义的描述信息生成与之对应的Element，并由众多Element组成Elements Tree
+- 物理组件会对应自己的RenderObject实现，RenderObject用于定义对应Widget的渲染方式（Layout & Paint）
+- 逻辑组件没有与其对应的RenderObject，因为对他们layout和paint没有实际意义
 
-![Elements Tree](assets/chatflutter/img/elements.png)
++++?image=assets/chatflutter/img/Flutter_DrawFrame.png&size=auto 80%
 
----
++++?image=assets/chatflutter/img/WidgetTree1.png&size=70% auto
 
-**@color[#84CDF4](RenderObject)**
-<br><br>
-@ul
-- 真正负责Widget内容的layout和paint
-- 在每一次屏幕刷新的build phase阶段会为所有Widget生成对应的RenderObhect，所有RenderObhect形成一个RenderObhects Tree
-- 但 Elements Tree  !=  RenderObjects Tree
-@ulend
-
-+++
-
-逻辑组件没有与其对应的RenderObject，因为对他们layout和paint没有实际意义
++++?image=assets/chatflutter/img/WidgetTree2.png&size=auto 80%
 
 +++
 
 @ul
 - RenderObject的默认实现是RenderBox
 - RenderBox实现一个基于笛卡尔坐标的布局和绘制算法
-- 我们愿意的话可以实现自己的RenderObject
+- 我们愿意的话可以派生RenderObject实现自己的渲染算法
 @ulend
 
 +++
@@ -230,7 +221,6 @@ Flutter Plugin for AS
 <br><br>
 @ul
 - 单线程模型
-- Isolate
 - Asynchrony
 - JIT & AOT
 @ulend
@@ -239,31 +229,57 @@ Flutter Plugin for AS
 
 **@color[#84CDF4](单线程模型)**
 <br><br>
-所有Dart代码运行在同一Isolate(默认情况下)
+@ul
+- Dart是一个单线程模型语言
+- Dart其实没有线程的概念，取而代之是Isolate（Thread/Proc）
 <br>
-One Event-Loop,  Two Queues
+
++++
+
+@ul
+- Isolate与线程类似，也是程序的最小执行单元
+- 但是与线程不同的是，Isolate之间不共享任何内存
+- Isolate之间通过port通信，通信的消息在接受方也会先做一次Copy操作
+@ulend
+
++++?image=assets/chatflutter/img/Dart_Isolate.png&size=auto 80%
+
++++
+
+@ul
+- Dart也是基于Event-Looper及Event-Queue模型
+- 一个Isolate中包含一个Event-Looper和两个Queue
+@ulend
+
++++
+
+两个Queue
+@ul
+- Event Queue
+- Microtask Queue
+@ulend
+
++++
+
+@ul
+- Event Queue中主要包含用户的交互，文件I/O，计时器的触发等事件
+- Microtask Queue用于协助完成Event Queue中事件的收尾工作
+@ulend
 
 +++?image=assets/chatflutter/img/event_loop2.png&size=auto 80%
 
 ---
 
-**@color[#84CDF4](Isolate?)**
-<br><br>
-它类似于线程，也表示程序的最小执行单元
-<br>
-但不与其他Isolate共享内存
-
-+++?image=assets/chatflutter/img/Dart_Isolate.png&size=auto 80%
-
----
-
-**@color[#84CDF4](Asynchroy in Dart)**
+**@color[#84CDF4](Asynchroy)**
 <br><br>
 @ul
 - Future 
- - 一个表示其结果可能在将来某个时间点才会返回的类。可以通过为其设置回调，回调方法会在其相关的任务完成后调用
+ - 一个表示其结果可能在将来某个时间点才会返回的类。
+ - 新建一个Future意味着往Event Queue队尾插入一个Event
+ - 等到该事件被处理后会回调Future的回调方法
 - async & await
- - Dart1.9加入的语法糖，本质也是实现异步操作
+ - Dart1.9加入的语法糖
+ - 以同步的写法来实现异步操作
 @ulend
 
 +++
@@ -337,9 +353,8 @@ Future<String> gatherNewsReports() => newsStream.first;
 
 +++
 
-**@color[#84CDF4]("Asynchroy")**
+**@size[8em]("Asynchroy")**
 <br><br>
-一个Isolate， 一个Event-loop
 @ul
 - 无法发挥CPU多核的优势
 - 多个Isolate，实现真正的异步
