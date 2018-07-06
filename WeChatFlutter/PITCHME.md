@@ -33,6 +33,10 @@
  - Flutter核心库，包含graphics, I/O, Plugin架构, Dart runtime等等
 @ulend
 
++++
+
+![runtime](assets/chatflutter/img/runtime.png)
+
 ---
 
 **@color[#84CDF4](UI Framework)**
