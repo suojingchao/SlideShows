@@ -20,8 +20,17 @@
 <br><br>
 @ul
 - Google开发的跨平台移动应用开发SDK，同时也将是Google Fuchsia下开发应用的主要工具
-- 第一个版本被称作“天空”。 于2015年的Flutter开发者会议上被公布，目标为实现120FPS的渲染性能
+- 第一个版本被称作“Sky”。 于2015年的Flutter开发者会议上被公布，目标为实现120FPS的渲染性能
 - v0.5.6  --  10 days ago
+@ulend
+
++++
+
+@ul
+- Flutter Framework
+ - Flutter基本功能的框架实现
+- Flutter Engine
+ - Flutter核心库，包含graphics, I/O, Plugin架构, Dart runtime等等
 @ulend
 
 ---
